@@ -1,0 +1,9 @@
+{
+    "name": "Forge Blank Project",
+    "modules": {
+        "forge-package-manager": "1.0.0",
+        "forge-router": "1.0.0",
+        "forge-view-engine": "1.0.1",
+        "forge-error-handler": "1.0.0"
+    }
+}
