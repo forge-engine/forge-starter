@@ -21,7 +21,9 @@ modules/*
 !/storage/.gitignore
 /storage/*.key
 /storage/logs/*
+/storage/logs/
 /storage/database.sqlite
+/storage/database/
 /storage/memory.sqlite
 /storate/framework/modules/*
 /storage/framewok/tmp/*

@@ -1,5 +1,7 @@
 <?php
 
+use Forge\Core\View\Component;
+
 /**
  * @var string $title
  */
@@ -18,18 +20,9 @@ layout("main");
                 Get ready to build something amazing, entirely on your terms.
             </p>
 
-            <nav>
-                <ul class="forge-links-list">
-                    <li><a href="https://forge-engine.github.io/">Documentation</a></li>
-                    <li><a href="https://github.com/forge-engine/modules">Modules</a></li>
-                    <li><a href="https://github.com/forge-engine/forge">Forge</a></li>
-                    <li><a href="https://github.com/forge-engine">GitHub</a></li>
-                </ul>
-            </nav>
+            <?= Component::render("nav-bar") ?>
 
-            <p class="forge-note">
-                Forge - The PHP Framework Where You Are In Control.
-            </p>
+            <?= Component::render("footer") ?>
         </div>
     </div>
 </div>

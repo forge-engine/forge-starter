@@ -1,7 +1,5 @@
 <?php
 
-use Forge\Core\View\Component;
-
 /**
     @var string $title
     @var string $content
@@ -21,11 +19,9 @@ use Forge\Core\View\Component;
 </head>
 
 <body>
-    <?= Component::render("nav-bar") ?>
     <div class="main">
         <?= $content ?>
     </div>
-    <?= Component::render("footer") ?>
 </body>
 
 </html>
