@@ -9,7 +9,7 @@ Forge Starter comes pre-configured with the following core Forge framework modul
 - **ForgePackageManager:** The Forge package manager itself! Use this to easily install and manage additional modules to expand your project's functionality.
 - **ForgeErrorHandler:** Provides robust error and exception handling, giving you helpful error pages during development and graceful error handling in production.
 
-This minimal setup gives you a solid foundation for building web applications while keeping your project size incredibly small (under 500KB!). Perfect for projects where performance, simplicity, and a clear understanding of your codebase are key.
+This minimal setup gives you a solid foundation for building web applications while keeping your project size incredibly small (under 240KB!). Perfect for projects where performance, simplicity, and a clear understanding of your codebase are key.
 
 ## Installation
 

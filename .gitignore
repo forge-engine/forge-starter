@@ -1,5 +1,5 @@
 # Ignore sensitive environment files
-.env
+!.env
 !.env.example
 
 # Ignore compiled source code
