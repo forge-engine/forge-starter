@@ -27,6 +27,7 @@ Getting started with Forge Starter is easy:
 2.  **Install dependencies using ForgePackageManager:**
 
     ```bash
+    php install.php
     php forge.php package:install-project
     ```
 
