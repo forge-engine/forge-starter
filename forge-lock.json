@@ -7,9 +7,9 @@
             "integrity": "c75c3c9cde075dc95c008cd8aaf1aeb603f9da16bddcacbddacc5faf5c191901"
         },
         "forge-error-handler": {
-            "version": "0.1.0",
+            "version": "0.1.1",
             "registry": "forge-engine-modules",
-            "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-error-handler/0.1.0/0.1.0.zip",
+            "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-error-handler/0.1.1/0.1.1.zip",
             "integrity": "6b59bfc2b8547a2440eeb5473185bed31e3927d0f5a28b0ae06be3f95601fb30"
         }
     }
