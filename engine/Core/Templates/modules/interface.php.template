@@ -1,8 +1,8 @@
 <?php
 
-namespace Forge\Modules\{{ moduleName }}\Contracts;
+namespace App\Modules\{{ moduleName }}\Contracts;
 
 interface {{ interfaceName }}
 {
-    public function test(): void;
+	public function doSomething(): string;
 }

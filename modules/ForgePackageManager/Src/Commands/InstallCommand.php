@@ -1,37 +1,29 @@
 <?php
 
-namespace Forge\Modules\ForgePackageManager\Src\Commands;
+declare(strict_types=1);
 
-use Forge\Core\Contracts\Command\CommandInterface;
-use Forge\Core\Helpers\App;
-use Forge\Core\Traits\OutputHelper;
-use Forge\Modules\ForgePackageManager\Src\Services\PackageManager;
+namespace App\Modules\ForgePackageManager\Commands;
 
-class InstallCommand implements CommandInterface
+use Forge\CLI\Command;
+use Forge\Core\Module\Attributes\CLICommand;
+use App\Modules\ForgePackageManager\Services\PackageManagerService;
+use Throwable;
+
+#[CLICommand(name: 'package:install-project', description: 'Install modules from forge-lock.json')]
+final class InstallCommand extends Command
 {
-    use OutputHelper;
-
-    public function getName(): string
+    public function __construct(private PackageManagerService $packageManagerService)
     {
-        return 'install:project';
-    }
-
-    public function getDescription(): string
-    {
-        return 'Install modules from forge-lock.json';
     }
 
     public function execute(array $args): int
     {
         try {
-            /** @var PackageManager $packageManager */
-            $packageManager = App::getContainer()->get(PackageManager::class);
-            $packageManager->installFromLock();
-
-            $this->success("Modules installed successfully.");
+            $this->packageManagerService->installFromLock();
+            $this->success("Modules installed successfully");
             return 0;
-        } catch (\Throwable $e) {
-            $this->error("Error: " . $e->getMessage());
+        } catch (Throwable $e) {
+            $this->error("Error :" . $e->getMessage());
             return 1;
         }
     }

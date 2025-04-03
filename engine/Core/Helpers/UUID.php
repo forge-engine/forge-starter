@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Forge\Core\Helpers;
 
 use Exception;
 use InvalidArgumentException;
-use Random\RandomException;
 
-class UUID
+final class UUID
 {
     /**
      * Generate an ID string of the specified type.
@@ -90,8 +91,14 @@ class UUID
         // Random node ID (replace with MAC address or persistent node ID for true uniqueness in distributed systems)
         $node = bin2hex(random_bytes(6));
 
-        return sprintf('%08s-%04s-%04s-%04s-%012s',
-            $time_low, $time_mid, $time_hi_and_version, $clock_seq_hi_and_reserved . $clock_seq_low, $node);
+        return sprintf(
+            '%08s-%04s-%04s-%04s-%012s',
+            $time_low,
+            $time_mid,
+            $time_hi_and_version,
+            $clock_seq_hi_and_reserved . $clock_seq_low,
+            $node
+        );
     }
 
     /**

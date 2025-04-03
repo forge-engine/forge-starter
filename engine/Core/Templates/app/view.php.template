@@ -1,0 +1,18 @@
+<?php
+use Forge\Core\View\Component;
+
+/**
+ * @var string $title
+ */
+ 
+ /***
+    component usage explicit: Component::render("name", [])
+    lets explicit component('name', [])
+  */
+
+layout("main");
+?>
+
+<h2>Welcome <?=$title?></h2>
+
+<?= component("alert", ["type" => "success","children" => "Success message"])?>

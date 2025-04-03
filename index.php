@@ -8,13 +8,6 @@
  *
  * All requests should be routed through the `public/index.php` file.
  *
- * @framework Forge
- * @license MIT
- * @github acidlake
- * @author Jeremias
- * @security Root Protection
- * @version 1.0.0
- * @copyright 2025
  */
 
 http_response_code(403);

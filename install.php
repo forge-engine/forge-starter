@@ -92,14 +92,6 @@ if (!extractZip($zipFilePath, $extractionPath)) {
 
 unlink($zipFilePath);
 
-// Remove .git directory from engine folder
-if (!removeGitDirectory($extractionPath)) {
-    echo "Warning: Failed to remove .git directory from engine folder. This is not critical, but it's recommended to remove it manually.\n";
-} else {
-    echo "Removed .git directory from engine folder.\n";
-}
-
-
 echo "\nForge Framework version {$versionToInstall} installed successfully inside the 'engine' folder!\n";
 echo "You can now use 'php forge.php' to manage your project and modules.\n";
 echo "Run 'php forge.php list' to see available commands.\n";
@@ -164,7 +156,7 @@ function verifyFileIntegrity(string $filePath, string $expectedHash): bool
 function extractZip(string $zipPath, string $destinationPath): bool
 {
     $zip = new ZipArchive();
-    if ($zip->open($zipPath) === TRUE) {
+    if ($zip->open($zipPath) === true) {
         if (!is_dir($destinationPath)) {
             mkdir($destinationPath, 0755, true);
         }
@@ -207,24 +199,6 @@ function recursiveDeleteDirectory(string $dirPath): bool
     return rmdir($dirPath);
 }
 
-/**
- * Removes the .git directory from a given path.
- *
- * @param string $dirPath Path to the directory potentially containing a .git directory.
- * @return bool True on success, false on failure or if .git directory doesn't exist.
- */
-function removeGitDirectory(string $dirPath): bool
-{
-    $gitDirPath = $dirPath . '/.git';
-    if (is_dir($gitDirPath)) {
-        echo "Deleting .git directory from engine folder...\n";
-        return recursiveDeleteDirectory($gitDirPath);
-    } else {
-        return true; // No .git directory found, consider it success.
-    }
-}
-
-
 function displayHelp(): void
 {
     echo "Forge Framework Installer (install.php)\n\n";
@@ -232,6 +206,6 @@ function displayHelp(): void
     echo "Options:\n";
     echo "  --version=<version>   Specify the framework version to install (e.g., --version=0.1.0).\n";
     echo "  --version <version>   Specify the framework version to install (e.g., --version 0.1.0).\n";
-    echo "  help                    Displays this help message.\n";
+    echo "  help                  Displays this help message.\n";
     echo "\nInstalls the latest framework version if no options are provided.\n";
 }

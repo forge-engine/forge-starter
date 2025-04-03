@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Forge\Core\Helpers;
 
-class Framework
+final class Framework
 {
     public static function version(): string
     {
-        return '0.1.0';
+        return FRAMEWORK_VERSION;
     }
 
     public static function isVersionCompatible(string $currentVersion, string $requiredVersion): bool
@@ -33,6 +35,5 @@ class Framework
     public static function isPhpVersionCompatible(string $currentVersion, string $requiredVersion): bool
     {
         return version_compare($currentVersion, $requiredVersion, '>=');
-
     }
 }

@@ -1,43 +1,36 @@
 <?php
 
-namespace Forge\Modules\ForgePackageManager\Src\Commands;
+declare(strict_types=1);
 
-use Forge\Core\Contracts\Command\CommandInterface;
-use Forge\Core\Helpers\App;
-use Forge\Core\Traits\OutputHelper;
-use Forge\Modules\ForgePackageManager\Src\Services\PackageManager;
+namespace App\Modules\ForgePackageManager\Commands;
 
-class InstallModuleCommand implements CommandInterface
+use App\Modules\ForgePackageManager\Services\PackageManagerService;
+use Forge\CLI\Command;
+use Forge\Core\Module\Attributes\CLICommand;
+
+#[CLICommand(name: 'package:install-module', description: 'Install a module from the registry')]
+final class InstallModuleCommand extends Command
 {
-    use OutputHelper;
-
-    public function getName(): string
+    public function __construct(private PackageManagerService $packageManagerService)
     {
-        return 'install:module';
     }
-
-    public function getDescription(): string
-    {
-        return 'Install a module from the registry';
-    }
-
     public function execute(array $args): int
     {
+        $this->info("You can bypass the cache by adding force to the end: php forge.php install:module module-name force");
         if (empty($args[0])) {
-            $this->error("Module name is required. Usage: forge install:module <module-name>[@version]");
+            $this->error("Module name is required. Usage: php forge.php install:module <module-name>[@version]");
             return 1;
         }
 
         $moduleNameVersion = $args[0];
         $parts = explode('@', $moduleNameVersion);
         $moduleName = $parts[0];
+        $forceCache = $args[1] ?? null;
         $version = $parts[1] ?? null;
 
 
         try {
-            /** @var PackageManager $packageManager */
-            $packageManager = App::getContainer()->get(PackageManager::class);
-            $packageManager->installModule($moduleName, $version);
+            $this->packageManagerService->installModule($moduleName, $version, $forceCache);
             return 0;
         } catch (\Throwable $e) {
             $this->error("Error installing module: " . $e->getMessage());

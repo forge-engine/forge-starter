@@ -1,9 +1,8 @@
 {
-    "name": "Forge Blank Project",
+    "name": "Forge Framework",
     "modules": {
-        "forge-package-manager": "1.0.0",
-        "forge-router": "1.0.0",
-        "forge-view-engine": "1.0.1",
-        "forge-error-handler": "1.0.0"
+        "forge-engine/framework": "0.1.15",
+        "forge-package-manager": "0.1.0",
+        "forge-error-handler": "0.1.0"
     }
 }

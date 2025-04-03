@@ -1,20 +1,20 @@
 <?php
-if (PHP_VERSION_ID < 80200) {
-    echo "Error: Forge requires PHP 8.2 or higher. Your current PHP version is " . PHP_VERSION . "\n";
-    exit(1);
-}
 
-// --- Define Core Paths ---
+declare(strict_types=1);
+
 define("BASE_PATH", dirname(__DIR__));
 
-// --- Initialize Autoloader ---
-require_once BASE_PATH . "/engine/Core/Bootstrap/Autoloader.php";
+require BASE_PATH . "/engine/Core/Autoloader.php";
 
-use Forge\Core\Bootstrap\Autoloader;
+// Register autoloader
+\Forge\Core\Autoloader::register();
 
-Autoloader::initialize(BASE_PATH);
+// Check for maintenance mode
+$maintenanceFile = BASE_PATH . '/storage/framework/maintenance.html';
+if (file_exists($maintenanceFile)) {
+    readfile($maintenanceFile);
+    exit;
+}
 
-// --- Initialize Framework with SimpleBootstrap -- Manually bootstrap available ---
-use \Forge\Core\Bootstrap\SimpleBootstrap;
-
-SimpleBootstrap::run();
+// Init Engine
+\Forge\Core\Engine::init();

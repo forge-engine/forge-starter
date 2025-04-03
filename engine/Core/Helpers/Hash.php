@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Forge\Core\Helpers;
 
-class Hash
+final class Hash
 {
     /**
      * Hashes a password using PASSWORD_DEFAULT algorithm.
