@@ -1,85 +1,85 @@
-# Forge Starter: Your Minimal Forge Framework Base
+# 🔥 Forge Starter: Your Barebones Forge Playground!
 
-Welcome to Forge Starter! This project is designed to be the **lightest possible starting point** for building web applications with the Forge PHP framework. It includes only the essential components to get you up and running quickly, keeping your project lean and efficient.
+Hey there! 👋 Welcome to Forge Starter – think of this as your super lightweight starting kit for building web apps with the Forge PHP framework. It's got just the essentials to get you going quickly, so your project stays nice and lean.
 
-## What's Included?
+## What's Inside This Kit?
 
-Forge Starter comes pre-configured with the following core Forge framework modules:
+Forge Starter comes with a couple of cool things pre-installed:
 
-- **ForgePackageManager:** The Forge package manager itself! Use this to easily install and manage additional modules to expand your project's functionality.
-- **ForgeErrorHandler:** Provides robust error and exception handling, giving you helpful error pages during development and graceful error handling in production.
+- **ForgePackageManager:** This is the Forge package manager itself! You'll use this to easily add and manage any extra modules you want in your project.
+- **ForgeErrorHandler:** This helps you handle errors and exceptions like a pro. During development, it'll show you helpful error pages, and in production, it'll make sure things fail gracefully.
 
-This minimal setup gives you a solid foundation for building web applications while keeping your project size incredibly small (under 240KB!). Perfect for projects where performance, simplicity, and a clear understanding of your codebase are key.
+This minimal setup means your project starts super small (under 240KB!). It's perfect if you're all about speed, simplicity, and knowing exactly what's going on in your code.
 
-## Installation
+## Let's Get This Show on the Road! (Installation)
 
-Getting started with Forge Starter is easy:
+Getting started with Forge Starter is a piece of cake:
 
-1.  **Clone this repository:**
+1.  **Grab a copy of this project:**
 
     ```bash
     git clone [repository-url] your-project-name
     cd your-project-name
     ```
 
-    _(Replace `[repository-url]` with the actual URL of your Forge Starter repository and `your-project-name` with your desired project directory name.)_
+    _(Just replace `[repository-url]` with the actual link to this Forge Starter repository, and `your-project-name` with whatever you want to name your project folder.)_
 
-2.  **Install dependencies using ForgePackageManager:**
+2.  **Install the basics using ForgePackageManager:**
 
     ```bash
     php install.php
     php forge.php package:install-project
     ```
 
-    This command will read the `forge.lock.json` file (or `forge.json` if it's a fresh project) and install the necessary Forge framework components and any modules listed in your `forge.json` manifest. This sets up your project with the Forge core and the modules included in Forge Starter.
+    This command will look at the `forge.lock.json` file (or `forge.json` if it's a brand new project) and install the main Forge framework bits and any modules listed in your `forge.json` file. This gets your project set up with the core of Forge and the stuff that comes with the starter.
 
-3.  **Set up your environment:**
+3.  **Tweak your settings:**
 
-    - **Environment variables:** Copy `.env.example` to `.env` and configure your application's environment variables (database settings, application URL, etc.) in the `.env` file.
-    - **Generate application key (optional but recommended for security):**
+    - **Environment stuff:** Copy the `.env.example` file to `.env` and open up `.env` to set things like your database info and your website's URL.
+    - **Make it secure (optional, but a good idea!):**
       ```bash
       php forge.php key:generate
       ```
-      _(This command generates a unique application key and sets it in your `.env` file. This is important for security, especially in production environments.)_
+      _(This command creates a unique key for your app and puts it in your `.env` file. It's especially important for security when your site goes live.)_
 
-4.  **Serve your application (for development):**
-    You can use the built-in Forge development server:
+4.  **See your app in action (for testing):**
+    You can use Forge's built-in mini-server:
 
     ```bash
     php forge.php serve
     ```
 
-    This will start a development server, by default serving your application at `http://localhost:8080`. You can customize the host and port:
+    This will start a little server for you, usually at `http://localhost:8080`. You can even change the address and port if you want:
 
     ```bash
     php forge.php serve 127.0.0.1 9090
     ```
 
-    This will serve your application at `http://127.0.0.1:9090`.
+    That'll make it run at `http://127.0.0.1:9090`.
 
-    Alternatively, you can use PHP's built-in web server directly:
+    Or, if you prefer, you can use PHP's own built-in server directly:
 
     ```bash
     php -S localhost:8000 -t public
     ```
 
-    Then, access your application in your browser at `http://localhost:8000`.
+    Then just open your browser and go to `http://localhost:8000`.
 
-## 💡 Adding More Modules
+## 💡 Want More Features? Add Modules!
 
-One of the strengths of Forge is its modularity. You can easily extend your Forge Starter project by installing additional modules using the ForgePackageManager.
+One of the cool things about Forge is that it's super modular. You can easily add more features to your Forge Starter project by installing extra modules using the ForgePackageManager.
 
-To install a new module, use the `forge package:require` command:
+To add a new module, just run this command:
 
 ```bash
-php forge.php package:require [module-name]
+php forge.php package:install-module module-name@[module-version]
 ```
 
 (Replace [module-name] with the name of the Forge module you want to install, e.g., forge package:require ForgeDatabaseModule. You can find a list of available modules at the [Forge Modules Repository](https://github.com/forge-engine/modules).)
 
 ### Other Useful Forge Commands:
 
-The Forge CLI tool provides several commands to help you manage your project:
+The Forge command-line tool has a bunch of useful commands to help you manage your project:
 
 | Command                                       | Description                                                 |
 | --------------------------------------------- | ----------------------------------------------------------- |
