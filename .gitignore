@@ -28,6 +28,7 @@ modules/*
 /storate/framework/modules/*
 /storage/framewok/tmp/*
 /storage/*.sqlite
+/engine/
 
 
 # Ignore cache and logs
