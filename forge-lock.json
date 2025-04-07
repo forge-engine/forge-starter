@@ -17,6 +17,12 @@
             "registry": "forge-engine-modules",
             "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-logger/0.1.1/0.1.1.zip",
             "integrity": "cc26047eed7d1280e5adbe0c2ac92bc06565f4f7b564eacd94fa70a2e0b3dcdf"
+        },
+        "forge-welcome": {
+            "version": "0.1.0",
+            "registry": "forge-engine-modules",
+            "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-welcome/0.1.0/0.1.0.zip",
+            "integrity": "45c88c138cdb3db8457031697263ccda6025f20ffcdca66955629e4d0b2ebd05"
         }
     }
 }
