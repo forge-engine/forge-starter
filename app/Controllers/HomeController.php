@@ -16,7 +16,7 @@ final class HomeController
 {
     use ControllerHelper;
 
-    #[Route("/")]
+    #[Route(path: "/", method: "GET")]
     public function index(): Response
     {
         $data = [

@@ -6,7 +6,7 @@ use Forge\Core\View\Component;
  * @var string $title
  */
 
-layout("main");
+layout(name: "main", loadFromModule: false);
 ?>
 <div class="layout-wrapper">
     <div class="landing-wrapper">
@@ -20,9 +20,9 @@ layout("main");
                 Get ready to build something amazing, entirely on your terms.
             </p>
 
-            <?= Component::render("nav-bar") ?>
+            <?= Component::render(name: "nav-bar", loadFromModule: false, props: []) ?>
 
-            <?= Component::render("footer") ?>
+            <?= Component::render(name: "footer", loadFromModule: false, props: []) ?>
         </div>
     </div>
 </div>

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\View\Components\FlashMessage;
+namespace App\Resources\View\Components\FlashMessage;
 
 use Forge\Core\View\BaseComponent;
 use Forge\Core\View\Component;
@@ -12,6 +12,6 @@ class FlashMessage extends BaseComponent
 {
     public function render(): mixed
     {
-        return $this->renderview("FlashMessage/FlashMessageView");
+        return $this->renderview(viewPath: "FlashMessage/FlashMessageView", data: [], loadFromModule: false);
     }
 }
