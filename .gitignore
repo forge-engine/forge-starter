@@ -29,6 +29,7 @@ modules/*
 /storage/framewok/tmp/*
 /storage/*.sqlite
 /engine/
+/engine/Core/Module/module_registry.php
 
 
 # Ignore cache and logs
