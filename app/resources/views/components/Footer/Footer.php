@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Resources\View\Components\Footer;
+namespace App\View\Components\Footer;
 
 use Forge\Core\View\BaseComponent;
 use Forge\Core\View\Component;

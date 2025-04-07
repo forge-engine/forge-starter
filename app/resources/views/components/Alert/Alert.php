@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\View\Resources\Components\Alert;
+namespace App\View\Components\Alert;
 
 use Forge\Core\View\BaseComponent;
 use Forge\Core\View\Component;
-use App\Resources\View\Components\Alert\AlertPropsDto;
+use App\View\Components\Alert\AlertPropsDto;
 
 #[Component(name: "alert", useDto: true)]
 class Alert extends BaseComponent

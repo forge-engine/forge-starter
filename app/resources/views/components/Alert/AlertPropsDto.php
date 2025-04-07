@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Resources\View\Components\Alert;
+namespace App\View\Components\Alert;
 
 class AlertPropsDto
 {

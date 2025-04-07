@@ -1,8 +1,9 @@
 {
     "name": "Forge Framework",
     "modules": {
-        "forge-engine/framework": "0.1.15",
+        "forge-engine/framework": "0.1.22",
         "forge-package-manager": "0.1.0",
-        "forge-error-handler": "0.1.1"
+        "forge-error-handler": "0.1.1",
+        "forge-logger": "0.1.1"
     }
 }

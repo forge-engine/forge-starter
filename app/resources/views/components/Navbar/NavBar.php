@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Resources\View\Components\Navbar;
+namespace App\View\Components\Navbar;
 
 use Forge\Core\View\BaseComponent;
 use Forge\Core\View\Component;

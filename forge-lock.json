@@ -10,7 +10,13 @@
             "version": "0.1.1",
             "registry": "forge-engine-modules",
             "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-error-handler/0.1.1/0.1.1.zip",
-            "integrity": "ec29985947dc11c36bfb67305b222c2f544beb331139562c19519301b8c936af"
+            "integrity": "8aa9ee78f98241c8510758d0b9afc8fc96d9db4d3edbc2dc1965ec93a9631be6"
+        },
+        "forge-logger": {
+            "version": "0.1.1",
+            "registry": "forge-engine-modules",
+            "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-logger/0.1.1/0.1.1.zip",
+            "integrity": "cc26047eed7d1280e5adbe0c2ac92bc06565f4f7b564eacd94fa70a2e0b3dcdf"
         }
     }
 }
