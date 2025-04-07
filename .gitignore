@@ -25,7 +25,9 @@ modules/*
 /storage/database.sqlite
 /storage/database/
 /storage/memory.sqlite
-/storate/framework/modules/*
+/storage/framework/
+/storage/framework/cache/*
+/storage/framework/modules/*
 /storage/framewok/tmp/*
 /storage/*.sqlite
 /engine/
