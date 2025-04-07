@@ -1,5 +1,5 @@
 {
-    "name": "Forge Framework",
+    "name": "Forge Engine Starter",
     "modules": {
         "forge-engine/framework": "0.1.22",
         "forge-package-manager": "0.1.0",
