@@ -23,6 +23,12 @@
             "registry": "forge-engine-modules",
             "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-welcome/0.1.0/0.1.0.zip",
             "integrity": "45c88c138cdb3db8457031697263ccda6025f20ffcdca66955629e4d0b2ebd05"
+        },
+        "forge-ui": {
+            "version": "0.1.0",
+            "registry": "forge-engine-modules",
+            "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-ui/0.1.0/0.1.0.zip",
+            "integrity": "0a39b3ed30a1c103579723b417cbc2043f23e7e57fbdf007fd320b5d7cd034a6"
         }
     }
 }
