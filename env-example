@@ -81,3 +81,6 @@ MAIL_ENCRYPTION="none" # Options: tls, ssl, none
 # File Storage
 FILE_STORAGE_PATH=public/storage/files
 FILE_STORAGE_DRIVER=local # Options: local
+
+#Package Manager Github Access Token
+GITHUB_TOKEN=your-access-token

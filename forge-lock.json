@@ -4,7 +4,7 @@
             "version": "0.1.0",
             "registry": "forge-engine-modules",
             "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-package-manager/0.1.0/0.1.0.zip",
-            "integrity": "3decaedbf5fd1b301db9141559b33852c72a76925708e6b1ca49ef157c431da0"
+            "integrity": "6590078bf0fe622055a1bcdb16d7498b5a5a6648c0c902fbcd6d6a0c34ce9def"
         },
         "forge-error-handler": {
             "version": "0.1.1",
