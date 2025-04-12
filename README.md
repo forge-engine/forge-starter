@@ -8,8 +8,10 @@ Forge Starter comes with a couple of cool things pre-installed:
 
 - **ForgePackageManager:** This is the Forge package manager itself! You'll use this to easily add and manage any extra modules you want in your project.
 - **ForgeErrorHandler:** This helps you handle errors and exceptions like a pro. During development, it'll show you helpful error pages, and in production, it'll make sure things fail gracefully.
+- **ForgeWelcome:** This is the welcome page that you see when you run this project.
+- **ForgeUi:** This is the forge component ui that the ForgeWelcome use.
 
-This minimal setup means your project starts super small (under 240KB!). It's perfect if you're all about speed, simplicity, and knowing exactly what's going on in your code.
+This minimal setup means your project starts super small (under 400KB!). It's perfect if you're all about speed, simplicity, and knowing exactly what's going on in your code, after you are done checking how the modules works, you can remove the module that you dont need, for example the ForgeWelcome, ForgeUi, etc, if you dont need to have a more human friendly error handler, just remove it, if you dont want a package manager cli remove it.
 
 ## Let's Get This Show on the Road! (Installation)
 
@@ -102,8 +104,4 @@ Forge Engine, Modules, Starter are open-source software licensed under the [MIT 
 
 ---
 
-📚 [Full Documentation](https://forge-engine.github.io/) |
-🐛 [Report Issues](https://github.com/forge-engine/forge-starter/issues) |
-💡 [Feature Requests](https://github.com/forge-engine/forge/discussions)
-
-_Forge Framework - Build explicitly, scale infinitely_
+📚 [Documentation](https://forge-engine.github.io/)
