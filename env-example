@@ -10,6 +10,10 @@ CORS_ALLOWED_ORIGINS=["http://localhost:8000", "https://forge-starter.test"]
 CORS_ALLOWED_METHODS=['GET, POST, PUT, DELETE, OPTIONS']
 CORS_ALLOWED_HEADERS=['Content-Type', 'Authorization']
 
+#Queue
+#drivers=database|in-memory|file
+QUEUE_DRIVER=database
+
 #Database
 DB_DRIVER=sqlite
 DB_HOST=127.0.0.1
