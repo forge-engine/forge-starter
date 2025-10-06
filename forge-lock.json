@@ -18,17 +18,17 @@
             "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-logger/0.1.1/0.1.1.zip",
             "integrity": "cc26047eed7d1280e5adbe0c2ac92bc06565f4f7b564eacd94fa70a2e0b3dcdf"
         },
-        "forge-welcome": {
-            "version": "0.1.0",
-            "registry": "forge-engine-modules",
-            "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-welcome/0.1.0/0.1.0.zip",
-            "integrity": "a35f7836a5112166787e3d15fac60422de175fca15d74017c5ca37fc11d2c321"
-        },
         "forge-ui": {
             "version": "0.1.1",
             "registry": "forge-engine-modules",
             "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-ui/0.1.1/0.1.1.zip",
             "integrity": "0a90af84170b0603c89c173affd0b5981a4463d4c5eb4d2bf1c4ddf4724554c4"
+        },
+        "forge-welcome": {
+            "version": "0.1.2",
+            "registry": "forge-engine-modules",
+            "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-welcome/0.1.2/0.1.2.zip",
+            "integrity": "e585e99e7b69c46f0105103d5f8c8c807b28ef163b8ec8cef04ac2adc4330f8e"
         }
     }
 }

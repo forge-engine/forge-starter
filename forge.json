@@ -2,14 +2,14 @@
     "name": "Forge Engine Starter",
     "engine": {
         "name": "forge-engine",
-        "version": "0.1.43"
+        "version": "0.1.44"
     },
     "modules": {
         "forge-package-manager": "0.1.0",
         "forge-error-handler": "0.1.1",
         "forge-logger": "0.1.1",
-        "forge-welcome": "0.1.0",
         "forge-engine/framework": "latest",
-        "forge-ui": "0.1.1"
+        "forge-ui": "0.1.1",
+        "forge-welcome": "0.1.2"
     }
 }
