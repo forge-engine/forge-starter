@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'api_keys' => ['your-secure-api-key'],
+    'api_key' => env('APP_KEY', 'your-secure-api-key'),
     'ip_whitelist' => env('IP_WHITE_LIST', []),
     'rate_limit' => [
         'max_requests' => env('RATE_LIMIT_MAX_REQUESTS', 40),

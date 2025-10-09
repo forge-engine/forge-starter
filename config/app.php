@@ -11,4 +11,5 @@ return [
         'driver' => env("LOG_DRIVER", "syslog"),
         'path' => BASE_PATH .  "/storage/logs/forge.log"
     ],
+    'env' => env('APP_ENV', 'development')
 ];
