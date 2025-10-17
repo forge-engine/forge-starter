@@ -19,10 +19,10 @@
             "integrity": "cc26047eed7d1280e5adbe0c2ac92bc06565f4f7b564eacd94fa70a2e0b3dcdf"
         },
         "forge-ui": {
-            "version": "0.1.1",
+            "version": "0.1.2",
             "registry": "forge-engine-modules",
-            "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-ui/0.1.1/0.1.1.zip",
-            "integrity": "0a90af84170b0603c89c173affd0b5981a4463d4c5eb4d2bf1c4ddf4724554c4"
+            "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-ui/0.1.2/0.1.2.zip",
+            "integrity": "283c0ac20a91635f72741ec9777ff48396871a0b9d99f9881f9c55ff7dadf35f"
         },
         "forge-welcome": {
             "version": "0.1.4",
