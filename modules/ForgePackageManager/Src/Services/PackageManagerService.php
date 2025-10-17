@@ -9,8 +9,13 @@ use Forge\CLI\Traits\OutputHelper;
 use Forge\Core\Config\Config;
 use Forge\Core\DI\Attributes\Service;
 use Forge\Core\Helpers\Strings;
+use Forge\Core\Module\Attributes\Module;
+use Forge\Core\Module\Attributes\PostInstall;
+use Forge\Core\Module\Attributes\PostUninstall;
 use Forge\Core\Module\Attributes\Provides;
 use Forge\Core\Module\Attributes\Requires;
+use Forge\Traits\StringHelper;
+use ReflectionException;
 use ZipArchive;
 
 #[Service]
@@ -19,12 +24,13 @@ use ZipArchive;
 final class PackageManagerService implements PackageManagerInterface
 {
     use OutputHelper;
+    use StringHelper;
 
-    private const OFFICIAL_REGISTRY_NAME = 'forge-engine-modules';
-    private const OFFICIAL_REGISTRY_BASE_URL = 'https://github.com/forge-engine/modules';
-    private const OFFICIAL_REGISTRY_BRANCH = 'main';
-    private const FRAMEWORK_MODULE_NAME = 'forge-engine/framework';
-    private const PACKAGE_MANAGER_MODULE_NAME = 'forge-package-manager';
+    private const string OFFICIAL_REGISTRY_NAME = 'forge-engine-modules';
+    private const string OFFICIAL_REGISTRY_BASE_URL = 'https://github.com/forge-engine/modules';
+    private const string OFFICIAL_REGISTRY_BRANCH = 'main';
+    private const string FRAMEWORK_MODULE_NAME = 'forge-engine/framework';
+    private const string PACKAGE_MANAGER_MODULE_NAME = 'forge-package-manager';
 
     private array $registries = [];
     private int $cacheTtl;
@@ -32,10 +38,10 @@ final class PackageManagerService implements PackageManagerInterface
     private string $cachePath;
     private string $integrityHash;
 
-    public function __construct(private Config $config)
+    public function __construct(private readonly Config $config)
     {
-        $this->registries = $config->get('forge_package_manager.registry', []);
-        $this->cacheTtl = $config->get('forge_package_manager.cache_ttl', 3600);
+        $this->registries = $this->config->get('forge_package_manager.registry', []);
+        $this->cacheTtl = $this->config->get('forge_package_manager.cache_ttl', 3600);
         $this->modulesPath = BASE_PATH . '/modules/';
         $this->cachePath = BASE_PATH . '/storage/framework/cache/modules/';
 
@@ -43,12 +49,12 @@ final class PackageManagerService implements PackageManagerInterface
         $this->ensureModulesDirectoryExists();
     }
 
-    public function getRegisties(): array
+    public function getRegistries(): array
     {
         return $this->registries;
     }
 
-    public function getDefaultRegistryDetails()
+    public function getDefaultRegistryDetails(): array
     {
         return [
             'name' => self::OFFICIAL_REGISTRY_NAME,
@@ -158,6 +164,9 @@ final class PackageManagerService implements PackageManagerInterface
         return $this->getDefaultRegistryDetails();
     }
 
+    /**
+     * @throws ReflectionException
+     */
     public function installModule(string $moduleName, ?string $version = null, ?string $forceCache = null): void
     {
         $this->info("Installing module: {$moduleName}" . ($version ? " version {$version}" : " (latest)"));
@@ -167,7 +176,6 @@ final class PackageManagerService implements PackageManagerInterface
             return;
         }
 
-        // 1. Determine registry and module info
         $moduleInfo = $this->getModuleInfo($moduleName, $version);
         if (!$moduleInfo) {
             $this->error("Module '{$moduleName}' not found in registries.");
@@ -218,6 +226,7 @@ final class PackageManagerService implements PackageManagerInterface
 
         $this->updateForgeJson($moduleName, $versionToInstall);
         $this->createForgeLockJson($moduleName, $versionToInstall, $registryDetails, $githubZipUrl, $integrityHash);
+        $this->runPostInstallAttributes($moduleInstallPath, $this->toPascalCase($moduleName));
 
         $moduleForgeJsonPath = $moduleInstallPath . '/forge.json';
         if (file_exists($moduleForgeJsonPath)) {
@@ -443,6 +452,12 @@ final class PackageManagerService implements PackageManagerInterface
             return;
         }
 
+        try {
+            $this->runPostUninstallAttributes($moduleInstallPath, $this->toPascalCase($moduleName));
+        } catch (\ReflectionException $e) {
+            $this->warning("Failed to execute PostUninstall for {$moduleName}: " . $e->getMessage());
+        }
+
         $this->info("Removing module {$moduleName}...");
 
         if (!$this->removeDirectory($moduleInstallPath)) {
@@ -637,6 +652,145 @@ final class PackageManagerService implements PackageManagerInterface
             return true;
         } else {
             return false;
+        }
+    }
+
+    /**
+     * @throws ReflectionException
+     */
+    /**
+     * @throws ReflectionException
+     */
+    private function runPostInstallAttributes(string $moduleInstallPath, string $moduleName): void
+    {
+        $moduleSrc = glob($moduleInstallPath . '/**/*.php');
+        if (!$moduleSrc) {
+            $this->warning("No PHP files found in module {$moduleName}, skipping PostInstall scanning.");
+            return;
+        }
+
+        foreach ($moduleSrc as $file) {
+            require_once $file;
+        }
+
+        $foundModuleClass = false;
+
+        foreach (get_declared_classes() as $class) {
+            $ref = new \ReflectionClass($class);
+            $moduleAttr = $ref->getAttributes(Module::class);
+
+            if (empty($moduleAttr)) {
+                continue;
+            }
+
+            $moduleInstance = $moduleAttr[0]->newInstance();
+
+            if ($moduleInstance->name === $moduleName) {
+                $foundModuleClass = true;
+                $postInstallAttrs = $ref->getAttributes(PostInstall::class);
+
+                if (empty($postInstallAttrs)) {
+                    $this->info("Module {$moduleName} has no PostInstall attributes defined.");
+                    return;
+                }
+
+                $this->info("Executing PostInstall commands for module {$moduleName}...");
+
+                foreach ($postInstallAttrs as $attr) {
+                    /** @var PostInstall $instance */
+                    $instance = $attr->newInstance();
+                    $args = implode(' ', $instance->args);
+                    $command = "php forge.php {$instance->command} {$args}";
+                    $this->info("Running: {$command}");
+
+                    exec($command, $output, $code);
+                    $this->line();
+
+                    if ($code !== 0) {
+                        $this->error("Command '{$command}' failed for module {$moduleName} (exit code {$code})");
+                        if (!empty($output)) {
+                            $this->error("Output:\n" . implode("\n", $output));
+                        }
+                    } else {
+                        $this->success("Command '{$command}' executed successfully.");
+                    }
+                }
+
+                return;
+            }
+        }
+
+        if (!$foundModuleClass) {
+            $this->warning("No #[Module] class found for '{$moduleName}', skipping PostInstall execution.");
+        }
+    }
+
+    /**
+     * Executes #[PostUninstall] commands defined in the module class before removal.
+     *
+     * @throws ReflectionException
+     */
+    private function runPostUninstallAttributes(string $moduleInstallPath, string $moduleName): void
+    {
+        $moduleSrc = glob($moduleInstallPath . '/**/*.php');
+        if (!$moduleSrc) {
+            $this->warning("No PHP files found in module {$moduleName}, skipping PostUninstall scanning.");
+            return;
+        }
+
+        foreach ($moduleSrc as $file) {
+            require_once $file;
+        }
+
+        $foundModuleClass = false;
+
+        foreach (get_declared_classes() as $class) {
+            $ref = new \ReflectionClass($class);
+            $moduleAttr = $ref->getAttributes(\Forge\Core\Module\Attributes\Module::class);
+
+            if (empty($moduleAttr)) {
+                continue;
+            }
+
+            $moduleInstance = $moduleAttr[0]->newInstance();
+
+            if ($moduleInstance->name === $moduleName) {
+                $foundModuleClass = true;
+                $postUninstallAttrs = $ref->getAttributes(PostUninstall::class);
+
+                if (empty($postUninstallAttrs)) {
+                    $this->info("Module {$moduleName} has no PostUninstall attributes defined.");
+                    return;
+                }
+
+                $this->info("Executing PostUninstall commands for module {$moduleName}...");
+
+                foreach ($postUninstallAttrs as $attr) {
+                    /** @var PostUninstall $instance */
+                    $instance = $attr->newInstance();
+                    $args = implode(' ', $instance->args);
+                    $command = "php forge.php {$instance->command} {$args}";
+                    $this->info("Running: {$command}");
+
+                    exec($command, $output, $code);
+                    $this->line();
+
+                    if ($code !== 0) {
+                        $this->error("Command '{$command}' failed for module {$moduleName} (exit code {$code})");
+                        if (!empty($output)) {
+                            $this->error("Output:\n" . implode("\n", $output));
+                        }
+                    } else {
+                        $this->success("Command '{$command}' executed successfully.");
+                    }
+                }
+
+                return;
+            }
+        }
+
+        if (!$foundModuleClass) {
+            $this->warning("No #[Module] class found for '{$moduleName}', skipping PostUninstall execution.");
         }
     }
 }
