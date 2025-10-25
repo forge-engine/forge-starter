@@ -5,30 +5,6 @@
             "registry": "forge-engine-modules",
             "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-package-manager/0.1.6/0.1.6.zip",
             "integrity": "48c9b5e900b9e58fdff5faa62b77ded8b3a29162e5e5f5ac1657d38efdc9141f"
-        },
-        "forge-error-handler": {
-            "version": "0.1.2",
-            "registry": "forge-engine-modules",
-            "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-error-handler/0.1.2/0.1.2.zip",
-            "integrity": "611c371e110a216cf88a2ccdd70e189e299c0930296aef10d1fb12acd95d9096"
-        },
-        "forge-logger": {
-            "version": "0.1.2",
-            "registry": "forge-engine-modules",
-            "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-logger/0.1.2/0.1.2.zip",
-            "integrity": "9af3100bc2e891ecbb17f0634c1d93033879f6932bca6dfcb5c9f3347f755141"
-        },
-        "forge-ui": {
-            "version": "0.1.5",
-            "registry": "forge-engine-modules",
-            "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-ui/0.1.5/0.1.5.zip",
-            "integrity": "02f7a96d4a0497b0f10bc1aeffa99aae544a2a3ba7b710f2a73dee62a215694f"
-        },
-        "forge-welcome": {
-            "version": "0.1.6",
-            "registry": "forge-engine-modules",
-            "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-welcome/0.1.6/0.1.6.zip",
-            "integrity": "92673431fe26b48665288c34b0e25273ad7df71a4b65f3b4a39c6362a5e8b957"
         }
     }
 }
