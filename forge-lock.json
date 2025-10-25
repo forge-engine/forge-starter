@@ -4,7 +4,7 @@
             "version": "0.1.6",
             "registry": "forge-engine-modules",
             "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-package-manager/0.1.6/0.1.6.zip",
-            "integrity": "57c7373cf389b45fda669f3b8587798ea9f5e7a8b7225e5439bff75ebc4c0e4e"
+            "integrity": "48c9b5e900b9e58fdff5faa62b77ded8b3a29162e5e5f5ac1657d38efdc9141f"
         },
         "forge-error-handler": {
             "version": "0.1.2",
@@ -19,10 +19,10 @@
             "integrity": "9af3100bc2e891ecbb17f0634c1d93033879f6932bca6dfcb5c9f3347f755141"
         },
         "forge-ui": {
-            "version": "0.1.4",
+            "version": "0.1.5",
             "registry": "forge-engine-modules",
-            "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-ui/0.1.4/0.1.4.zip",
-            "integrity": "b3cc4a8a6c4a14b5ac69ea692cb064b90334c814b53125aa3c7c4952ada5da0e"
+            "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-ui/0.1.5/0.1.5.zip",
+            "integrity": "02f7a96d4a0497b0f10bc1aeffa99aae544a2a3ba7b710f2a73dee62a215694f"
         },
         "forge-welcome": {
             "version": "0.1.6",
