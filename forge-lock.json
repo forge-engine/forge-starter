@@ -1,10 +1,10 @@
 {
     "modules": {
         "forge-package-manager": {
-            "version": "1.1.0",
+            "version": "1.2.0",
             "registry": "forge-engine-modules",
-            "module_path": "forge-package-manager/1.1.0",
-            "integrity": "baa219a9b7d127bb80a303bb13b6967459c2c3b8c0b2785c921c96798cd7ce4b",
+            "module_path": "forge-package-manager/1.2.0",
+            "integrity": "020c57639186a1964ee94e1d868e542656893f79e0254e876211705257eb5d14",
             "source_type": "git",
             "source_config": {
                 "name": "forge-engine-modules",
@@ -12,7 +12,6 @@
                 "url": "https://github.com/forge-engine/modules",
                 "branch": "main",
                 "private": false,
-                "personal_token": "your-access-token",
                 "debug": false
             }
         },

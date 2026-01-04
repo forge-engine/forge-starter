@@ -5,7 +5,7 @@
         "version": "latest"
     },
     "modules": {
-        "forge-package-manager": "1.1.0",
+        "forge-package-manager": "1.2.0",
         "forge-welcome": "0.1.7"
     }
 }
