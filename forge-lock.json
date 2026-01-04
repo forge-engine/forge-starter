@@ -1,16 +1,26 @@
 {
     "modules": {
         "forge-package-manager": {
-            "version": "0.1.6",
+            "version": "1.0.1",
             "registry": "forge-engine-modules",
-            "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-package-manager/0.1.6/0.1.6.zip",
-            "integrity": "48c9b5e900b9e58fdff5faa62b77ded8b3a29162e5e5f5ac1657d38efdc9141f"
+            "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-package-manager/1.0.1/1.0.1.zip",
+            "integrity": "5afb812b2500900e2aa170c159befffecd0874f0ad5bf605ef533934ddc8b826"
         },
         "forge-welcome": {
             "version": "0.1.7",
             "registry": "forge-engine-modules",
-            "url": "https://raw.githubusercontent.com/forge-engine/modules/main/modules/forge-welcome/0.1.7/0.1.7.zip",
-            "integrity": "db2205afe30c0ac8f5d761a1054c897ce24751fc37105899abd545f9d6aaa62b"
+            "module_path": "forge-welcome/0.1.7",
+            "integrity": "db2205afe30c0ac8f5d761a1054c897ce24751fc37105899abd545f9d6aaa62b",
+            "source_type": "git",
+            "source_config": {
+                "name": "forge-engine-modules",
+                "type": "git",
+                "url": "https://github.com/forge-engine/modules",
+                "branch": "main",
+                "private": false,
+                "personal_token": "your-access-token",
+                "debug": false
+            }
         }
     }
 }
