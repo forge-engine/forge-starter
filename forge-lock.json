@@ -1,10 +1,10 @@
 {
     "modules": {
         "forge-package-manager": {
-            "version": "2.1.0",
+            "version": "2.2.0",
             "registry": "forge-engine-modules",
-            "module_path": "forge-package-manager/2.1.0",
-            "integrity": "813fa67f269c3c95f2455d1e7a9c962a551368b49cb71cd9861c99ba82469662",
+            "module_path": "forge-package-manager/2.2.0",
+            "integrity": "3d87f41241a372a28029182e856eab3aa7ac1d346ec429b910129ec28bf1fb54",
             "source_type": "git",
             "source_config": {
                 "name": "forge-engine-modules",

@@ -2,10 +2,10 @@
     "name": "Forge Kernel Starter",
     "engine": {
         "name": "forge-engine",
-        "version": "0.11.0"
+        "version": "latest"
     },
     "modules": {
-        "forge-package-manager": "2.1.0",
+        "forge-package-manager": "2.2.0",
         "forge-welcome": "0.1.7"
     }
 }
