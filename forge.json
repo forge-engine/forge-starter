@@ -6,6 +6,6 @@
     },
     "modules": {
         "forge-package-manager": "2.2.0",
-        "forge-welcome": "0.1.7"
+        "forge-welcome": "1.0.0"
     }
 }

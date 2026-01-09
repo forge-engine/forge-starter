@@ -16,10 +16,10 @@
             }
         },
         "forge-welcome": {
-            "version": "0.1.7",
+            "version": "1.0.0",
             "registry": "forge-engine-modules",
-            "module_path": "forge-welcome/0.1.7",
-            "integrity": "db2205afe30c0ac8f5d761a1054c897ce24751fc37105899abd545f9d6aaa62b",
+            "module_path": "forge-welcome/1.0.0",
+            "integrity": "1a351eaa48d167e8f04605486ae9c9438dcedd3b1d33b1efc77329752cedbaab",
             "source_type": "git",
             "source_config": {
                 "name": "forge-engine-modules",
@@ -27,7 +27,6 @@
                 "url": "https://github.com/forge-engine/modules",
                 "branch": "main",
                 "private": false,
-                "personal_token": "your-access-token",
                 "debug": false
             }
         }
