@@ -44,8 +44,6 @@
 
 return [
     "global" => [
-        \Forge\Core\Http\Middlewares\RateLimitMiddleware::class,
-        \Forge\Core\Http\Middlewares\CircuitBreakerMiddleware::class,
         \Forge\Core\Http\Middlewares\CorsMiddleware::class,
         \Forge\Core\Http\Middlewares\SanitizeInputMiddleware::class,
         \Forge\Core\Http\Middlewares\CompressionMiddleware::class,
@@ -59,6 +57,5 @@ return [
         \Forge\Core\Http\Middlewares\IpWhiteListMiddleware::class,
         \Forge\Core\Http\Middlewares\ApiKeyMiddleware::class,
         \Forge\Core\Http\Middlewares\CookieMiddleware::class,
-        \Forge\Core\Http\Middlewares\ApiMiddleware::class,
     ],
 ];
