@@ -1,0 +1,17 @@
+storage/bin/
+storage/database/
+storage/sessions/
+storage/framework/cache/
+storage/framework/routes/
+storage/app/uploads/
+storage/framework/
+storage/logs/
+storage/sessions/
+.nova/
+.git/
+.idea/
+.fleet/
+node_modules/
+public/assets/modules/
+.forge-deployment-state.json
+.env

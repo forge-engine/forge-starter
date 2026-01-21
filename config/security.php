@@ -1,22 +1,32 @@
 <?php
 
 return [
-    'api_key' => env('APP_KEY', 'your-secure-api-key'),
-    'ip_whitelist' => env('IP_WHITE_LIST', []),
-    'rate_limit' => [
-        'max_requests' => env('RATE_LIMIT_MAX_REQUESTS', 40),
-        'time_window' => env('RATE_LIMIT_TIME_WINDOW', 60),
+    "app_key" => env("APP_KEY", "your-secure-app-key"),
+    "api_keys" => env("API_KEYS", ["your-secure-api-key"]),
+    "ip_whitelist" => env("IP_WHITE_LIST", []),
+    "rate_limit" => [
+        "enabled" => env("RATE_LIMIT_ENABLED", true),
+        "max_requests" => env("RATE_LIMIT_MAX_REQUESTS", 40),
+        "time_window" => env("RATE_LIMIT_TIME_WINDOW", 60),
+        "disable_in_dev" => env("RATE_LIMIT_DISABLE_IN_DEV", true),
+        "bypass_ips" => env("RATE_LIMIT_BYPASS_IPS", [
+            "127.0.0.1",
+            "::1",
+            "localhost",
+        ]),
     ],
-    'circuit_breaker' => [
-        'max_failures' => env('CIRCUIT_BREAKER_MAX_FAILURES', 5),
-        'reset_time' => env('CIRCUIT_BREAKER_RESET_TIME', 300),
+    "circuit_breaker" => [
+        "max_failures" => env("CIRCUIT_BREAKER_MAX_FAILURES", 5),
+        "reset_time" => env("CIRCUIT_BREAKER_RESET_TIME", 300),
+        "disable_in_dev" => env("CIRCUIT_BREAKER_DISABLE_IN_DEV", true),
     ],
-    'jwt' => [
-        'secret' => 'your-very-secure-secret-key',
+    "csp" => [
+        "enabled" => env("CSP_ENABLED", true),
+        "directives" => [
+            "default-src" => ["'self'"],
+            "script-src" => ["'self'", "'unsafe-inline'"],
+            "style-src" => ["'self'", "'unsafe-inline'"],
+        ],
+        "external_assets" => [],
     ],
-    'password' => [
-        'password_cost' => 12,
-        'max_login_attempts' => 3,
-        'lockout_time' => 300
-    ]
 ];

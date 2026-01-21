@@ -1,10 +1,10 @@
 {
     "modules": {
         "forge-package-manager": {
-            "version": "2.2.0",
+            "version": "3.3.0",
             "registry": "forge-engine-modules",
-            "module_path": "forge-package-manager/2.2.0",
-            "integrity": "3d87f41241a372a28029182e856eab3aa7ac1d346ec429b910129ec28bf1fb54",
+            "module_path": "forge-package-manager/3.3.0",
+            "integrity": "09f448be4a49cf5107c4c6778445776816240b89842635b5cf309f23693bd255",
             "source_type": "git",
             "source_config": {
                 "name": "forge-engine-modules",
@@ -12,14 +12,15 @@
                 "url": "https://github.com/forge-engine/modules",
                 "branch": "main",
                 "private": false,
+                "description": "Forge Kernel Official Modules",
                 "debug": false
             }
         },
         "forge-welcome": {
-            "version": "1.0.0",
+            "version": "1.2.0",
             "registry": "forge-engine-modules",
-            "module_path": "forge-welcome/1.0.0",
-            "integrity": "1a351eaa48d167e8f04605486ae9c9438dcedd3b1d33b1efc77329752cedbaab",
+            "module_path": "forge-welcome/1.2.0",
+            "integrity": "a129906650492195efd135529d4fadd90197444285881365a8a178adf7aacd29",
             "source_type": "git",
             "source_config": {
                 "name": "forge-engine-modules",
@@ -27,6 +28,7 @@
                 "url": "https://github.com/forge-engine/modules",
                 "branch": "main",
                 "private": false,
+                "description": "Forge Kernel Official Modules",
                 "debug": false
             }
         }

@@ -1,37 +1,41 @@
 # Ignore sensitive environment files
-!.env
+.env
 !.env.example
+.DS_Store
 
 # Ignore compiled source code
 /vendor/
 /node_modules/
 
 # Ignore modules
-modules/*
-!modules/.gitkeep
-!modules/ForgePackageManager
 !cache/.gitkeep
+
+tailwindcss
 
 # Ignore temporary files and logs
 /storage/*.key
 /storage/*.log
+/storage/app/*
 /storage/cache/*
 /storage/sessions/*
 /storage/framework/views/*
 !/storage/.gitignore
 /storage/*.key
 /storage/logs/*
-/storage/logs/
 /storage/database.sqlite
-/storage/database/
 /storage/memory.sqlite
-/storage/framework/
-/storage/framework/cache/*
 /storage/framework/modules/*
-/storage/framewok/tmp/*
+/storage/framework/tmp/*
+/storage/framework/cache/*
+/storage/framework/cache/modules/*
+/storage/framework/routes/
 /storage/*.sqlite
-/engine/
+/storage/database/*
+/storage/framework/logs/*
+/storage/tailwindcss/*
+#
 /engine/Core/Module/module_registry.php
+/storage/framework/cache/class-map.php
 
 
 # Ignore cache and logs
@@ -44,6 +48,8 @@ modules/*
 *.sublime-project
 .vscode/
 *.code-workspace
+.fleet/
+.nova/*
 
 # Ignore OS-specific files
 .DS_Store
@@ -100,3 +106,4 @@ secrets.json
 *.trace
 
 # Forge Modules:
+.forge-deployment-state.json
